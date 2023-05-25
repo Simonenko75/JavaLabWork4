@@ -21,7 +21,7 @@ public class TestController {
     @GetMapping("/execute/string")
     public @ResponseBody ResponseMessage executeString(@RequestParam Type type) {
         if (!Type.OK.equals(type)) {
-            throw new NullPointerException();
+            throw new RuntimeException("AAA!!!");
         }
 
         return new ResponseMessage("Hello!");
