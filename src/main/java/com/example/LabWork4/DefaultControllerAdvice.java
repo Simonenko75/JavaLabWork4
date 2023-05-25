@@ -20,6 +20,11 @@ public class DefaultControllerAdvice {
         return new Response("Database is down, please check it before try again...");
     }
 
+    @ExceptionHandler({MyException.class})
+    public @ResponseBody Response myExceptionError() {
+        return new Response("My exception is work, don't touch it :)...");
+    }
+
     @ExceptionHandler({Exception.class})
     public @ResponseBody Response anyAnotherError() {
         return new Response("Some problem... Sorry.");

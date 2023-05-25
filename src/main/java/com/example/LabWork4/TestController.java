@@ -19,9 +19,9 @@ public class TestController {
     }
 
     @GetMapping("/execute/string")
-    public @ResponseBody ResponseMessage executeString(@RequestParam Type type) {
+    public @ResponseBody ResponseMessage executeString(@RequestParam Type type) throws MyException {
         if (!Type.OK.equals(type)) {
-            throw new RuntimeException("AAA!!!");
+            throw new MyException("AAA!!!");
         }
 
         return new ResponseMessage("Hello!");
