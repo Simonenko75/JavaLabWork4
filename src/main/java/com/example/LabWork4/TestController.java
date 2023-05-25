@@ -18,14 +18,6 @@ public class TestController {
         return testService.execute(type);
     }
 
-    @ExceptionHandler({NullPointerException.class, IllegalArgumentException.class})
-    public @ResponseBody Response uncheckedError() {
-        return new Response("Unknown error, please connect to support...");
-    }
 
-    @ExceptionHandler({SQLException.class})
-    public @ResponseBody Response sqlError() {
-        return new Response("Database is down, please check it before try again...");
-    }
 
 }
