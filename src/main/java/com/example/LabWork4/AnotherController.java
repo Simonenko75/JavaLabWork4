@@ -2,13 +2,16 @@ package com.example.LabWork4;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/test/another")
+public class AnotherController {
 
     @Autowired
     private TestService testService;
@@ -16,15 +19,6 @@ public class TestController {
     @GetMapping("/execute")
     public @ResponseBody Response execute(@RequestParam Type type) throws SQLException {
         return testService.execute(type);
-    }
-
-    @GetMapping("/execute/string")
-    public @ResponseBody ResponseMessage executeString(@RequestParam Type type) {
-        if (!Type.OK.equals(type)) {
-            throw new NullPointerException();
-        }
-
-        return new ResponseMessage("Hello!");
     }
 
 }
